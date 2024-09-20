@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d8d8d8;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[list] {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[list]:focus {
+            border-color: #0ea021;
+            outline: none;
+        }
+
+        .checkbox-btn {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            user-select: none;
+            transition: color 0.3s;
+        }
+
+        .checkbox-btn:hover {
+            color: #0ea021;
+        }
+
+        .checkbox-btn input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            border: 2.5px solid #ddd;
+            background-color: white;
+            transition: .2s;
+        }
+
+        .checkbox-btn input:checked ~ .checkmark {
+            background-color: #0ea021;
+            border-color: transparent;
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            left: 50%;
+            top: 40%;
+            width: 10px;
+            height: 14px;
+            border: 2px solid white;
+            border-width: 0 2.5px 2.5px 0;
+            transition: .2s;
+            transform: translate(-50%, -50%) rotate(-90deg) scale(0.2);
+        }
+
+        .checkbox-btn input:checked ~ .checkmark:after {
+            visibility: visible;
+            opacity: 1;
+            transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            animation: pulse 1s ease-in;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #c73030;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #9e4444;
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.6);
+            }
+        }
+  
+.checkbox-btn {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-top: 7px;
+  }
+  
+  
+  .checkbox-btn input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkbox-btn label {
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 25px;
+    border: 2.5px solid grey;
+    transition: .2s linear;
+  }
+  .checkbox-btn input:checked ~ .checkmark {
+    background-color: transparent;
+  }
+  
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    left: 50%;
+    top: 40%;
+    width: 10px;
+    height: 14px;
+    border: 2px solid #0ea021;
+    filter: drop-shadow(0px 0px 10px #0ea021);
+    border-width: 0 2.5px 2.5px 0;
+    transition: .2s linear;
+    transform: translate(-50%, -50%) rotate(-90deg) scale(0.2);
+  }
+  
+  
+  .checkbox-btn input:checked ~ .checkmark:after {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    animation: pulse 1s ease-in;
+  }
+  
+  .checkbox-btn input:checked ~ .checkmark {
+    transform: rotate(45deg);
+    border: none;
+  }
+  
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(0deg) scale(1.6);
+    }
+  }
+  h3{
+    margin-left: 5px;
+    color: grey;
+  }
+  .image{
+    display: flex;
+  }
+  @media (max-width: 600px) {
+    form {
+     margin-left: 26px;
+        width: 340px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[list] {
+        padding: 8px;
+    }
+
+    button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    h3 {
+        font-size: 12px;
+    }
+    .image{
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+
+    }
+}
+@media (max-width: 346px) {
+    form {
+     margin-left: 26px;
+        width: 340px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[list] {
+        padding: 8px;
+    }
+
+    button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    h3 {
+        font-size: 12px;
+    }
+    .image{
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+
+    }
+}
+#two , #one{
+  
+   margin: 8px;
+}
+label{
+    color: grey;
+}
+select{
+    color: rgb(0, 0, 0);
+}
+.confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    display: none;
+}
+
+#success-message {
+    
+   
+    text-align: center;
+    font-size: 24px;
+    margin-top: 180px;
+    display: none;
+}
+#masterCardInput {
+    display: none; 
+    margin-top: 10px;
+}
+  
+    </style>
+</head>
+<body>
+
+    <div class="image">
+        <img src="https://i.pinimg.com/originals/e7/1b/1c/e71b1c46809e1bbf63f5fec0fb5314db.gif" alt="">
+        <form id="booking-form" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)">
+            <input type="hidden" name="access_key" value="b1ef81f9-5b23-4e99-93f9-0cb50532f2ef">
+            
+            <input type="text" name="name" required placeholder="ENTER YOUR NAME">
+            <input type="email" name="email" required placeholder="ENTER YOUR EMAIL">
+            <input type="text" name="address" required placeholder="ENTER YOUR ADDRESS">
+            <input type="text" name="contactno" required placeholder="ENTER YOUR CONTACT">
+    
+            <div class="labels">
+                <label id="one" for="requirement">CHOOSE YOUR REQUIREMENT</label><br>
+                <select id="requirement" name="requirement" required onchange="calculatePrice()">
+                    <option value="">Select</option>
+                    <option value="AC">AC</option>
+                    <option value="NON AC">NON AC</option>
+                </select>
+            </div>
+    
+            <br>
+            <label id="two" for="ambulanceType">CHOOSE YOUR AMBULANCE TYPE</label><br>
+            <select id="ambulanceType" name="ambulanceType" required onchange="calculatePrice()">
+                <option value="">Select</option>
+                <option value="BOAT AMBULANCE">BOAT AMBULANCE</option>
+                <option value="BASIC AMBULANCE">BASIC AMBULANCE</option>
+                <option value="AIR AMBULANCE">AIR AMBULANCE</option>
+                <option value="VAN AMBULANCE">VAN AMBULANCE</option>
+                <option value="ICU AMBULANCE">ICU AMBULANCE</option>
+                <option value="MORTUARY AMBULANCE">MORTUARY AMBULANCE</option>
+            </select>
+    
+            <input type="text" id="price" name="price" readonly placeholder="PRICE" style="margin-top: 10px;">
+    
+            <div class="checkbox-btn">
+                <label class="cod">
+                    <input id="cod" type="radio" name="payment" value="COD" onclick="toggleMasterCardInput()">
+                    <span class="checkmark"></span>
+                </label>
+                <h3>CASH ON DELIVERY (COD)</h3>
+            </div>
+    
+            <div class="checkbox-btn">
+                <label class="cod">
+                    <input id="masterCard" type="radio" name="payment" value="MASTER_CARD" onclick="toggleMasterCardInput()">
+                    <span class="checkmark"></span>
+                </label>
+                <h3><i class="fa-brands fa-cc-mastercard"></i> MASTER CARD</h3>
+            </div>
+    
+            <input type="text" id="masterCardInput" placeholder="ENTER YOUR MASTER CARD NUMBER" required>
+            
+            <button type="submit">Submit Form</button>
+        </form> 
+    
+        <div id="success-message">Ambulance Service Booked!</div>
+        <canvas id="confetti" class="confetti"></canvas>
+    </div>
+    
+    <script>
+        function calculatePrice() {
+            const requirement = document.getElementById('requirement').value;
+            const ambulanceType = document.getElementById('ambulanceType').value;
+            let price = 0;
+    
+            const basePrices = {
+                'AC': 10, 
+                'NON AC': 5
+            };
+    
+            const ambulancePrices = {
+                'BOAT AMBULANCE': 20,
+                'BASIC AMBULANCE': 10,
+                'AIR AMBULANCE': 50,
+                'VAN AMBULANCE': 15,
+                'ICU AMBULANCE': 25,
+                'MORTUARY AMBULANCE': 10
+            };
+    
+            if (requirement && ambulanceType) {
+                price = basePrices[requirement] + (ambulancePrices[ambulanceType] || 0);
+            }
+    
+            document.getElementById('price').value = price ? `$${price}` : '';
+        }
+    
+        function toggleMasterCardInput() {
+    const masterCardInput = document.getElementById('masterCardInput');
+    if (document.getElementById('masterCard').checked) {
+        masterCardInput.style.display = 'block';
+        masterCardInput.setAttribute('required', 'required'); 
+    } else {
+        masterCardInput.style.display = 'none';
+        masterCardInput.removeAttribute('required'); 
+        masterCardInput.value = '';
+    }
+}
+
+    
+function handleSubmit(event) {
+    event.preventDefault(); 
+
+    const paymentMethod = document.querySelector('input[name="payment"]:checked');
+
+    if (!paymentMethod) {
+        alert('Please select a payment method!');
+        return;
+    }
+
+    
+    if (paymentMethod.value === 'MASTER_CARD') {
+        const masterCardInput = document.getElementById('masterCardInput').value;
+        if (!masterCardInput) {
+            alert('Please enter your MasterCard number!');
+            return;
+        }
+    }
+
+    
+    const formData = new FormData(document.getElementById('booking-form'));
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => {
+        if (response.ok) {
+            document.getElementById('booking-form').style.display = 'none'; 
+            document.getElementById('success-message').style.display = 'block'; 
+            startConfetti(); 
+        } else {
+            alert('Submission failed. Please try again.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Submission failed. Please try again.');
+    });
+}
+
+
+
+    
+        function startConfetti() {
+            const canvas = document.getElementById('confetti');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+    
+            for (let i = 0; i < 100; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 5 + 2,
+                    color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+                    speed: Math.random() * 3 + 1,
+                    angle: Math.random() * 2 * Math.PI
+                });
+            }
+    
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach((p, index) => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                    
+                    p.x += Math.cos(p.angle) * p.speed;
+                    p.y += Math.sin(p.angle) * p.speed;
+    
+                    
+                    if (p.x > canvas.width || p.x < 0 || p.y > canvas.height) {
+                        particles[index] = {
+                            x: Math.random() * canvas.width,
+                            y: 0,
+                            radius: Math.random() * 5 + 2,
+                            color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+                            speed: Math.random() * 3 + 1,
+                            angle: Math.random() * 2 * Math.PI
+                        };
+                    }
+                });
+                requestAnimationFrame(animate);
+            }
+    
+            animate();
+            document.querySelector('.confetti').style.display = 'block'; 
+        }
+    </script>
+    </body>
+    </html>
